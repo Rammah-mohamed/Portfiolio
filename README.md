@@ -1,54 +1,31 @@
-# React + TypeScript + Vite
+# 🎬 My Portfolio Website  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A sleek and dynamic portfolio website built with **React, TypeScript, Tailwind CSS, and Framer Motion**. This project showcases my front-end development skills with smooth animations, responsive design, and a collection of my best work.
 
-Currently, two official plugins are available:
+🚀 **Live Demo:** [Portfolio Website](https://coderver-portfolio.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## ⚡ Features  
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+✅ **Smooth Animations** – Elegant transitions and animations powered by **Framer Motion**  
+✅ **Responsive Design** – Optimized for both mobile and desktop using **Tailwind CSS**  
+✅ **Project Showcases** – Display projects with detailed descriptions and interactive elements  
+✅ **Custom Animations** – Projects section with dynamic entry and hover effects  
+✅ **High Performance** – Built with **Vite** for ultra-fast build times and fast load speeds  
+✅ **Minimalistic Design** – Clean, modern UI with a focus on content  
+✅ **SEO Optimized** – Easily discoverable by search engines  
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ Tech Stack  
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **Frontend:** React, TypeScript, Vite, Tailwind CSS, Framer Motion  
+- **State Management:** React Context API  
+- **Build Tool:** Vite  
+- **Animations:** Framer Motion  
+- **Deployment:** Vercel  
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+---
+
+
