@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0a0f1e; /*Deep Midnight Blue*/
+  --color-secondBackground: #11182e; /*Dark Navy Blue*/
+  --color-primary: #1479ff; /*Vivid Electric Blue*/
+  --color-secondary: #1e3a8a; /*Deep Royal Blue*/
+  --color-accent: #50a7f3; /*Soft Sky Blue*/
+  --color-primaryText: #e1e7f5; /*Cool Light Grayish Blue*/
+  --color-secondaryText: #9bb4da; /*Muted Blue-Gray*/
+  --color-border: #1a2238; /*Dark Desaturated Blue*/
+  --color-hover: #1f6fef; /*Slightly Darker Electric Blue*/
+  --color-success: #1dbf73; /*Bright Green*/
+  --color-warning: #ffb822; /*Golden Orange*/
+}
+
+.hero-height {
+  height: calc(100vh - 80px);
+}
+
+.card:hover {
+  scale: 1.05;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.card:hover .child {
+  z-index: 10;
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
