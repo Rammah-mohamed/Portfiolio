@@ -7,7 +7,7 @@ import youtube from "../assets/Youtube.webp";
 import name from "../assets/naming.webp";
 import check from "../assets/name_check.webp";
 import key from "../assets/key.webp";
-import quiz from "../assets/quiz.webp";
+import saas from "../assets/saas.png"
 
 const containerVariants = {
   hidden: {},
@@ -30,29 +30,35 @@ const cardVariants = {
 
 const projects = [
   {
+    title: "SaaS Spend Dashboard",
+    description:
+      "A cost optimization tool that tracks SaaS usage and reduces waste from unused or redundant licenses.",
+    github: "https://github.com/Rammah-mohamed/saas-spend-dashboard",
+    live: "https://saas-spend-dashboard.vercel.app/",
+    image: saas,
+    impact: "Saved 23% in SaaS license costs (simulated company data).",
+    caseStudy: "/case-study/saas-dashboard", // flagship case study
+  },
+  {
     title: "IMDb Clone",
     description:
       "A full-featured IMDb clone using React, TypeScript, GraphQL, and MongoDB.",
     github: "https://github.com/Rammah-mohamed/IMDB-Clone",
     live: "https://imdb-clone-eta-three.vercel.app/",
     image: imdb,
+    impact: "Handled 1M+ movie records efficiently in tests.",
+    caseStudy: "/case-study/imdb-clone",
   },
   {
-    title: "Youtube Clone",
+    title: "YouTube Clone",
     description:
-      "A modern Youtube UI clone with React, REST API, and Material UI.",
+      "A modern YouTube UI clone with React, REST API, and Material UI.",
     github: "https://github.com/Rammah-mohamed/Youtube-Clone",
     live: "https://youtube-clone-virid-zeta.vercel.app/",
     image: youtube,
+    impact: "Implemented fast video search & playback experience.",
   },
-  {
-    title: "Quiz App",
-    description:
-      "A lightweight quiz app built with HTML, CSS, and TypeScript using the Open Trivia API.",
-    live: "https://quiz-app-one-pearl.vercel.app/",
-    github: "https://github.com/Rammah-mohamed/Quiz-App",
-    image: quiz,
-  },
+  // --- Open Source contributions (no impact needed here) ---
   {
     title: "Fix: Prevent Duplicate Folder/Request Names",
     description:
@@ -76,6 +82,9 @@ const projects = [
   },
 ];
 
+
+
+
 const Projects = () => {
   return (
     <motion.section
@@ -87,6 +96,7 @@ const Projects = () => {
       variants={containerVariants}
     >
       <div className="flex flex-col items-center justify-center gap-12">
+        {/* Featured Projects */}
         <div>
           <motion.h2
             className="text-primary mb-8 text-center text-3xl font-bold max-md:text-xl"
@@ -95,7 +105,7 @@ const Projects = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            Projects
+            Featured Projects & Case Studies
           </motion.h2>
 
           <motion.p
@@ -105,24 +115,39 @@ const Projects = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            Here's a selection of projects I've built to sharpen my skills and
-            solve real-world problems. Each project showcases my ability to
-            craft responsive, user-friendly interfaces using modern front-end
-            technologies like React, TypeScript, Tailwind CSS, and more...
+            I build tools that solve{" "}
+            <span className="text-primary font-semibold">real business problems</span>
+            —cutting costs, improving workflows, and enabling smarter decisions.
+            Each project includes a{" "}
+            <span className="text-primary font-semibold">case study</span> that
+            shows the impact in a real-world scenario.
           </motion.p>
 
+          {/* Project Cards */}
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {projects.slice(0, 3).map((project, index) => (
               <motion.div key={index} variants={cardVariants}>
                 <Card imageUrl={project.image} className="shadow-lg">
                   <CardContent>
+                    {/* Title */}
                     <h3 className="mb-2 text-lg font-semibold">
                       {project.title}
                     </h3>
+
+                    {/* Short Description */}
                     <p className="mb-4 text-sm tracking-wide text-gray-300">
                       {project.description}
                     </p>
-                    <div className="flex gap-4">
+
+                    {/* Highlight a business metric (if available) */}
+                    {project.impact && (
+                      <p className="mb-4 text-sm text-green-400 font-semibold">
+                        🚀 {project.impact}
+                      </p>
+                    )}
+
+                    {/* Buttons */}
+                    <div className="flex flex-wrap gap-4">
                       <Button
                         variant="outline"
                         className="flex items-center gap-2"
@@ -130,12 +155,23 @@ const Projects = () => {
                       >
                         <IconBrandGithub /> GitHub
                       </Button>
-                      <Button
-                        className="flex items-center gap-2"
-                        href={project.live}
-                      >
-                        <IconExternalLink /> Live Demo
-                      </Button>
+                      {project.live && (
+                        <Button className="flex items-center gap-2" href={project.live}>
+                          <IconExternalLink /> Live Demo
+                        </Button>
+                      )}
+
+                      {project.caseStudy && (
+                        <Button
+                          variant="outline"
+                          className="flex items-center gap-2"
+                          href={project.caseStudy}
+                        >
+                          📑 Case Study
+                        </Button>
+                      )}
+
+
                     </div>
                   </CardContent>
                 </Card>
@@ -144,6 +180,7 @@ const Projects = () => {
           </div>
         </div>
 
+        {/* Open Source Contributions */}
         <div>
           <motion.h2
             className="text-primary mb-8 text-center text-3xl font-bold max-md:text-xl"
@@ -189,6 +226,7 @@ const Projects = () => {
         </div>
       </div>
     </motion.section>
+
   );
 };
 

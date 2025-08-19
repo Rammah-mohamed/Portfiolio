@@ -1,5 +1,6 @@
 // Button.tsx
 import React from "react";
+import { Link } from "react-router-dom";
 
 type ButtonProps = {
   children: React.ReactNode;
@@ -22,14 +23,14 @@ export const Button: React.FC<ButtonProps> = ({
 
   return (
     href && (
-      <a
-        href={href}
+      <Link
+        to={href}
         target="_blank"
         rel="noopener noreferrer"
         className={`${buttonClass} inline-flex items-center justify-center rounded-lg px-2.5 py-1.5 text-sm ${className}`}
       >
         {children}
-      </a>
+      </Link>
     )
   );
 };

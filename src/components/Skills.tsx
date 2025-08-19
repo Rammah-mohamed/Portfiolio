@@ -92,74 +92,88 @@ export default function Skills() {
 
   return (
     <section
-      id="skills"
-      className="bg-background min-h-screen p-10 text-center"
-    >
-      <motion.h2
-        className="text-primary mb-6 text-3xl font-bold max-md:text-xl"
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        My Tech Stack
-      </motion.h2>
+  id="skills"
+  className="bg-background min-h-screen p-10 text-center"
+>
+  {/* Section Title */}
+  <motion.h2
+    className="text-primary mb-6 text-3xl font-bold max-md:text-xl"
+    initial={{ opacity: 0, y: -20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+  >
+    My Tech Stack
+  </motion.h2>
 
-      <motion.p
-        className="text-secondaryText mx-auto mb-6 max-w-4xl leading-6 tracking-wider max-md:text-sm"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.2 }}
-      >
-        I build high-performance, scalable web apps with React, TypeScript,
-        GraphQL, Tailwind CSS, and MongoDB, focusing on clean architecture,
-        state management, and optimization. Skilled in Vitest testing,
-        full-stack deployment, and image optimization, I craft seamless user
-        experiences with robust performance.
-      </motion.p>
+  {/* Intro */}
+  <motion.p
+    className="text-secondaryText mx-auto mb-6 max-w-4xl leading-6 tracking-wider max-md:text-sm"
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    transition={{ delay: 0.2 }}
+  >
+    I specialize in building{" "}
+    <span className="text-primary font-semibold">
+      internal tools for SaaS operations teams
+    </span>
+    —dashboards, workflow automation, and cost-optimization platforms.
+    Using <span className="text-primary font-semibold">React</span> and{" "}
+    <span className="text-primary font-semibold">TypeScript</span>, I craft
+    clean, scalable frontends. With{" "}
+    <span className="text-primary font-semibold">Supabase</span> and{" "}
+    <span className="text-primary font-semibold">GraphQL</span>, I design
+    data-driven apps that deliver real business outcomes like{" "}
+    <span className="text-primary font-semibold">
+      reducing SaaS waste by 25%
+    </span>{" "}
+    or cutting reporting time by 80%.
+  </motion.p>
 
+  {/* Skills Grid */}
+  <motion.div
+    className="grid gap-4 md:grid-cols-2 lg:grid-cols-3"
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    variants={{
+      hidden: { opacity: 0, y: 50 },
+      visible: {
+        opacity: 1,
+        y: 0,
+        transition: { staggerChildren: 0.2 },
+      },
+    }}
+  >
+    {skills.map((skill, index) => (
       <motion.div
-        className="grid gap-4 md:grid-cols-2 lg:grid-cols-3"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={{
-          hidden: { opacity: 0, y: 50 },
-          visible: {
-            opacity: 1,
-            y: 0,
-            transition: { staggerChildren: 0.2 },
-          },
-        }}
+        key={index}
+        className="bg-secondBackground flex flex-col gap-2 rounded-lg p-2 shadow-lg"
       >
-        {skills.map((skill, index) => (
+        <div className="flex items-center gap-2">
+          <span className="text-3xl max-md:text-xl">{skill.icon}</span>
+          <p className="text-primaryText text-lg font-semibold max-md:text-base">
+            {skill.name}
+          </p>
+        </div>
+
+        {/* Progress Bar */}
+        <div className="bg-secondaryText h-3 w-full overflow-hidden rounded-lg">
           <motion.div
-            key={index}
-            className="bg-secondBackground flex flex-col gap-2 rounded-lg p-2 shadow-lg"
-          >
-            <div className="flex items-center gap-2">
-              <span className="text-3xl max-md:text-xl">{skill.icon}</span>
-              <p className="text-primaryText text-lg font-semibold max-md:text-base">
-                {skill.name}
-              </p>
-            </div>
+            className={`h-full rounded-lg ${skill.color}`}
+            initial={{ width: 0 }}
+            whileInView={{ width: `${skill.level}%` }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
+          />
+        </div>
 
-            {/* Progress Bar */}
-            <div className="bg-secondaryText h-3 w-full overflow-hidden rounded-lg">
-              <motion.div
-                className={`h-full rounded-lg ${skill.color}`}
-                initial={{ width: 0 }}
-                whileInView={{ width: `${skill.level}%` }}
-                transition={{ duration: 1.2, ease: "easeInOut" }}
-              />
-            </div>
-
-            {/* Percentage Display */}
-            <p className="text-primaryText font-semibold max-md:text-sm">
-              {skill.level}% Proficiency
-            </p>
-          </motion.div>
-        ))}
+        {/* Percentage Display */}
+        <p className="text-primaryText font-semibold max-md:text-sm">
+          {skill.level}% Proficiency
+        </p>
       </motion.div>
-    </section>
+    ))}
+  </motion.div>
+</section>
+
   );
 }

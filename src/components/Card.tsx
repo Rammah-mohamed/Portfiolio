@@ -2,7 +2,7 @@ import React from "react";
 
 type CardProps = {
   children: React.ReactNode;
-  imageUrl: string;
+  imageUrl?: string;
   className?: string;
 };
 
@@ -18,8 +18,9 @@ export const Card: React.FC<CardProps> = ({
       <img
         src={imageUrl}
         alt="project image"
-        className="min-h-64 w-full object-cover"
+        className="w-full object-cover bg-left-top"
       />
+
       <div className="child bg-background absolute top-0 left-0 -z-10 flex h-0 items-center justify-center p-0 transition-all duration-300 group-hover:z-10 group-hover:h-full group-hover:w-full group-hover:p-4">
         {children}
       </div>
